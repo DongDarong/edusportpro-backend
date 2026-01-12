@@ -2,18 +2,29 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        //
+        DB::table('roles')->insert([
+            [
+                'id' => 1,
+                'name' => 'admin',
+                'description' => 'System administrator with full access',
+            ],
+            [
+                'id' => 2,
+                'name' => 'coach',
+                'description' => 'Coach responsible for teams, training, and attendance',
+            ],
+            [
+                'id' => 3,
+                'name' => 'player',
+                'description' => 'Player with access to personal profile and performance',
+            ],
+        ]);
     }
 }
